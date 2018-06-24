@@ -8,7 +8,7 @@ class Service:
         self.__db = db
     
     def __get_all_checks_ids(self):
-        return self.__db.select_column_from_table('checks','id')
+        return self.__db.get_all_column_values('checks', 'id')
     
     def get_all_checks(self):
         checks = []

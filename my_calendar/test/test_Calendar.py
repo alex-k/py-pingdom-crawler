@@ -25,5 +25,5 @@ class TestCalendar(unittest.TestCase):
     def test_get_all_days_in_month(self):
         days = Calendar.get_all_days_in_month_utc(2018, 2)
         self.assertEqual(28, len(days))
-        self.assertEqual(datetime.datetime(2018, 2, 1, 3, 0), days[0])
-        self.assertEqual(datetime.datetime(2018, 2, 28, 3, 0), days[-1])
+        self.assertEqual('1517443200', days[0].strftime("%s"))
+        self.assertEqual('1519776000', days[-1].strftime("%s"))

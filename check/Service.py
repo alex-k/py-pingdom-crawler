@@ -1,14 +1,16 @@
 from Check import Check
-from db.Db import Db
+from repository.Repository import Repository
+
 
 class Service:
     __db = None
     
-    def __init__(self, db = Db):
+    def __init__(self, db=Repository):
         self.__db = db
     
     def __get_all_checks_ids(self):
-        return self.__db.get_all_column_values('checks', 'id')
+        ids = self.__db.get_all_checks()
+        return ids
     
     def get_all_checks(self):
         checks = []

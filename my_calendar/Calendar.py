@@ -23,6 +23,7 @@ class Calendar:
     
     @staticmethod
     def get_next_day(date):
+        # type: (datetime) -> datetime
         return date + timedelta(days=1)
     
     @staticmethod

@@ -1,20 +1,17 @@
 from statistic.Entity import Entity
-from db.Db import Db
-
+from repository.Repository import Repository
+from repository.dummy.Dummy import Dummy
 
 class Service:
     __db = None
     
-    def __init__(self, db=Db):
+    def __init__(self, db):
         self.__db = db
     
     def get_period(self, check_id, time):
         period = Entity(check_id, time)
         
-        row = self.__db.get_values_by('statistic',
-                                      ['check_id', 'totalup', 'totaldown', 'timestamp'],
-                                      {'check_id': check_id, 'timestamp': time}
-                                      )
+        row = self.__db.get_statistic(check_id, time)
         if 'check_id' in row and row['check_id'] == check_id:
             if 'totalup' in row:
                 period.set_up_seconds(row['totalup'])

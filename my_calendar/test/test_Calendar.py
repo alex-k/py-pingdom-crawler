@@ -23,7 +23,6 @@ class TestCalendar(unittest.TestCase):
         self.assertEqual('1312243200', next_day.strftime("%s"))
     
     def test_get_all_days_in_month(self):
-        date = datetime.datetime.now(datetime.timezone.utc)
         days = Calendar.get_all_days_in_month_utc(2018, 2)
         self.assertEqual(28, len(days))
         self.assertEqual('1517443200', days[0].strftime("%s"))
